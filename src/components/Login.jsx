@@ -9,7 +9,7 @@ const loginSchema = Yup.object().shape({
 });
 export default function Login({ onLogin }) {
   return (
-    <div className="container pt-5 mt-5 pb-5 font_fam w-25">
+    <div className="container pt-5 mt-5 pb-5 font_fam w-50">
       <h3 className="submit-content fw-bold text-center mt-5">LOGIN</h3>
       <Formik
         initialValues={{

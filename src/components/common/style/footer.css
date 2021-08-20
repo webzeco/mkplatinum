@@ -5,9 +5,9 @@
 # Footer
 --------------------------------------------------------------*/
 /* FOOTER    */
-#footer {
+/* #footer {
   font-size: 14px;
-  background: #37517e;
+  background: #37517e !important;
 }
 .btn_style {
   font-size: 14px;
@@ -100,7 +100,7 @@
   #footer .credits {
     padding-top: 4px;
   }
-}
+} */
 
 /*--------------------------------------------------------------
 # Footer end

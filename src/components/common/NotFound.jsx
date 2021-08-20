@@ -1,12 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const NotFound = () => (
-  <div>
-    <h1>404 - Not Found!</h1>
-    <Link to="/">
-      Go Home
-    </Link>
+  <div className="container">
+    <h1 className="mt-5">404 - Not Found!</h1>
+    <Link to="/">Go Home</Link>
   </div>
 );
 

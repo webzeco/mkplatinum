@@ -265,14 +265,14 @@ input[type="text"] {
     width: 100px !important;
   }
   .stick-head {
-    /* display: block !important;
+    display: block !important;
     position: fixed !important;
     top: 0;
     left: 0;
     width: 100%;
     background: #e8e8e8;
 
-    border-bottom: 1px solid #00000028; */
+    border-bottom: 1px solid #00000028;
   }
 }
 /* {
