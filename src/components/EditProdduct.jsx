@@ -13,76 +13,74 @@ export default function EditProduct({ product }) {
   const [loaded, setLoaded] = useState(0);
 
   const onFileChangeHandler = (event) => {
-    setSelectedFile(event.target.files[0])
-    console.log(selectedFile)
-  }
+    setSelectedFile(event.target.files[0]);
+    console.log(selectedFile);
+  };
   const onImageChangeHandler = (event) => {
-    setSelectedImage(event.target.files[0])
-    console.log(selectedFile)
-  }
-  const editProductHandler = async (data,id) => {
+    setSelectedImage(event.target.files[0]);
+    console.log(selectedFile);
+  };
+  const editProductHandler = async (data, id) => {
     try {
-    const url = `${process.env.REACT_APP_URL}/api/v1/product`;
-    axios.patch(`${url}/updateProduct/${id}`, data, {
-      onUploadProgress: ProgressEvent => {
-        console.log((ProgressEvent.loaded / ProgressEvent.total * 100));
-        setLoaded((ProgressEvent.loaded / ProgressEvent.total * 100))
-      },
-    }).then(response=>{
-      toast.success('Success :Apk Successfully Updated !!!');
-      console.log(response);
-    })
-    // history.push('/');
-  } catch (error) {
-      toast.error('Error: Something went Wrong !!!!');
-  }
-  }
+      const url = `${process.env.REACT_APP_URL}/api/v1/product`;
+      axios
+        .patch(`${url}/updateProduct/${id}`, data, {
+          onUploadProgress: (ProgressEvent) => {
+            console.log((ProgressEvent.loaded / ProgressEvent.total) * 100);
+            setLoaded((ProgressEvent.loaded / ProgressEvent.total) * 100);
+          },
+        })
+        .then((response) => {
+          toast.success("Success :Apk Successfully Updated !!!");
+          console.log(response);
+        });
+      // history.push('/');
+    } catch (error) {
+      toast.error("Error: Something went Wrong !!!!");
+    }
+  };
 
   const onSubmitHandler = () => {
-    const data = new FormData()
+    const data = new FormData();
     if (selectedImage || selectedFile) {
-    if(selectedFile) data.append('file', selectedFile);
-    if (selectedImage) data.append('image', selectedImage);
-    editProductHandler(data,product.id);
+      if (selectedFile) data.append("file", selectedFile);
+      if (selectedImage) data.append("image", selectedImage);
+      editProductHandler(data, product.id);
     }
-  }
+  };
 
   useEffect(() => {
     console.log(product);
     if (!product) {
-      history.push('/');
+      history.push("/");
     }
     return () => {
       console.log("clean up");
-    }
-  }, [])
+    };
+  }, []);
   return (
-    <div className="container pt-5 mt-5 pb-5 font_fam w-50">
-      <h3 className="submit-content fw-bold text-center text-uppercase mt-5">Edit Apk</h3>
-      <div className="card d-flex">
+    <div className="container pt-5 mt-5 pb-5 font_fam w-75">
+      <h3 className="submit-content fw-bold text-center text-uppercase mt-3 mb-4">
+        Edit Apk
+      </h3>
+      <div className="card text-center p-3">
         <div>
-          <img src={`${process.env.REACT_APP_URL}/img/${product.image}`}
-            class="img-fluid"
-            style={{ height: "50px" }} alt='apk img' />
+          <img
+            src={`${process.env.REACT_APP_URL}/img/${product.image}`}
+            className="img-fluid mb-3"
+            style={{ height: "100px", width: "100px", borderRadius: "50px" }}
+            alt="apk img"
+          />
         </div>
         <div>
-          <h5>
-            {product.name}
-          </h5>
+          <h6 className="fw-bold">{product.name}</h6>
         </div>
         <div>
-          <h5>
-            {product.size}MB
-          </h5>
-
+          <h6>{product.size}MB</h6>
         </div>
         <div>
-          <h5>
-            {product.modifiedAt}
-          </h5>
-
+          <h6>{product.modifiedAt}</h6>
         </div>
-
       </div>
       <div className="mb-4 mt-5 ">
         <label htmlFor="file">Apk Image</label>
@@ -104,8 +102,8 @@ export default function EditProduct({ product }) {
           onChange={onFileChangeHandler}
         />
       </div>
-      <Progressbar loaded={loaded} type='circle'/>
-        <div className="cart mt-4 align-items-center">
+      <Progressbar loaded={loaded} type="circle" />
+      <div className="cart mt-4 align-items-center">
         <button
           type="button"
           onClick={onSubmitHandler}

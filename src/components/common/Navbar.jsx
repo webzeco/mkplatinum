@@ -20,7 +20,7 @@ export default function Navbar(props) {
     window.location = "/";
   };
   useEffect(() => {
-    return () => { };
+    return () => {};
   }, []);
   return (
     <header id="header" class="fixed-top ">
@@ -28,30 +28,55 @@ export default function Navbar(props) {
         <Link to="/" class="header__logo">
           <img
             src={`${process.env.REACT_APP_URL}/img/gold pro red.png`}
-            class="img-fluid mx-2" style={{ height: "100px" }} alt="Mk Platinum World" />
+            class="img-fluid mx-2"
+            style={{ height: "100px" }}
+            alt="Mk Platinum World"
+          />
         </Link>
         <h1 class="logo me-auto">
-          <Link to="/">
-          </Link>
+          <Link to="/"></Link>
         </h1>
         <nav id="navbar" class="navbar">
-            {user&&(
-                        <ul>
-              <li className='d-flex'><i class="fas fa-user "></i><Link class="nav-link text-dark text-uppercase" to="/add">{user.name}</Link></li>
-              <li><Link class="nav-link text-dark text-uppercase" to="/add">Add Product</Link></li>
-              <li><Link class="nav-link text-dark " onClick={logoutHandler} >logout</Link></li>
-
-              </ul>
-            )}
-            {!user&& <ul>
-             <li>
-             <li><Link class="nav-link text-dark text-uppercase" to="/contact">Contact us</Link></li>  
-               <Link class="nav-link text-dark active text-uppercase" to="/login">Login</Link></li>
-              </ul> }
+          {user && (
+            <ul>
+              <li className="d-flex">
+                <i class="fas fa-user "></i>
+                <Link class="nav-link text-dark text-uppercase" to="/add">
+                  {user.name}
+                </Link>
+              </li>
+              <li>
+                <Link class="nav-link text-dark text-uppercase" to="/add">
+                  Add Product
+                </Link>
+              </li>
+              <li>
+                <Link class="nav-link text-dark " onClick={logoutHandler}>
+                  logout
+                </Link>
+              </li>
+            </ul>
+          )}
+          {!user && (
+            <ul>
+              <li>
+                <li>
+                  <Link class="nav-link text-dark text-uppercase" to="/contact">
+                    Contact us
+                  </Link>
+                </li>
+                <Link
+                  class="nav-link text-dark active text-uppercase"
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </li>
+            </ul>
+          )}
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
       </div>
     </header>
   );
 }
-
