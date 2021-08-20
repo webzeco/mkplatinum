@@ -16,6 +16,7 @@ import ResetPassword from "./ResetPassword";
 import { getAllProducts } from "../services/productServices";
 import AddProduct from "./AddProdduct";
 import EditProduct from "./EditProdduct";
+import Navs from "./common/Navs";
 const Main = () => {
   const history = useHistory();
   const [user, setUser] = useState();
@@ -92,7 +93,7 @@ const Main = () => {
     <UserContext.Provider value={{ user: user }}>
             <div>
               <ToastContainer style={{ width: "322px" }} />
-              <Navbar />
+              <Navs />
               <Switch>
                 <Route
                   exact
