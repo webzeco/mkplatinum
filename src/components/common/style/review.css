@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+.r_title_look {
+  font-size: 22px !important;
+  font-weight: bold !important;
+  color: #333333;
+  font-family: "Source Sans Pro" !important;
+}
+.r_name_look {
+  font-size: 18px !;
+
+  color: #363636;
+  font-family: "Lato" !important;
+}
+.card_back_col {
+  background-color: #f5f3f2 !important;
+}
+.re_dis_look {
+  color: #363636;
+  font-size: 14px;
+  font-family: "Lato";
+}
+.Card_h_w {
+  height: 300px !important;
+  width: 350px !important;
+}

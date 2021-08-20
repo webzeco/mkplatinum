@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+.menu {
+  font-family: "Montserrat";
+  letter-spacing: "15px";
+  font-size: "15px";
+  font-stretch: "normal";
+  line-height: "1.88";
+  text-align: "center";
+  color: "#e61523";
+  display: "block";
+  text-decoration: "none";
+  white-space: "nowrap";
+}
+
+#menu {
+  display: none;
+}
+
+#personal:hover + div {
+  display: block;
+}

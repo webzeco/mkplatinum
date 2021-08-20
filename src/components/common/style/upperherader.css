@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+.s_look {
+  color: #333333;
+  font-size: 13px;
+  padding-left: 2px;
+  text-decoration: none !important;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+.icon_s_look {
+  color: #333333;
+  font-size: 16px;
+  padding-left: 2px;
+}

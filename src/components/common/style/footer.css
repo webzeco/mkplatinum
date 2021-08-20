@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+/* FOOTER    */
+#footer {
+  font-size: 14px;
+  background: #37517e;
+}
+.btn_style {
+  font-size: 14px;
+  font-family: "Montserrat";
+  font-weight: bold !important;
+}
+
+#footer .footer-newsletter {
+  padding: 50px 0;
+  background: #f5f5f5;
+  text-align: center;
+  font-size: 15px;
+  color: #444444;
+}
+
+#footer .footer-newsletter p {
+  padding: 50px 0;
+  text-align: center;
+  font-size: 24px;
+  font-family: "Montserrat";
+  color: #333333;
+}
+
+#footer .footer-top {
+  padding: 60px 0 30px 0;
+  background: #fff;
+}
+
+#footer .footer-top .footer-contact {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat";
+  color: #333333;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #333333;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+  text-decoration: none;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+#footer .footer-bottom {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #fff;
+}
+
+#footer .copyright {
+  text-decoration: none;
+  color: #9999;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  #footer .footer-bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .footer-contact {
+    display: none;
+  }
+
+  #footer .copyright,
+  #footer .credits {
+    text-align: center;
+    float: none;
+  }
+  #footer .credits {
+    padding-top: 4px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Footer end
+--------------------------------------------------------------*/
