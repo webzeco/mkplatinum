@@ -42,7 +42,7 @@ function Footer() {
             </strong>
             . All Rights Reserved
           </div>
-          <div class="credits fw-bold">
+          <div id='contactUs' class="credits fw-bold">
             Designed by <a href="https://webzeco.com/">Webzeco.com</a>
           </div>
         </div>

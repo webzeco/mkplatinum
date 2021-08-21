@@ -28,6 +28,7 @@ export default function Forgot({onForgot}) {
       >
         {({ errors, touched }) => (
           <Form>
+          
             <div className="mb-4">
               <Field
                 name="email"

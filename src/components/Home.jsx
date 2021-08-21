@@ -7,6 +7,7 @@ import {
   editProduct,
   getAllProducts,
 } from "../services/productServices";
+import DownloadBtn from "./common/DownloadBtn";
 import Progressbar from "./common/Progress";
 import { UserContext } from "./contexts/UserContext";
 import "./style/home.css";
@@ -125,7 +126,7 @@ const Home = ({ editProduct }) => {
                             <td>{prod.name}</td>
                             <td>{prod.size} MB</td>
                             {user && <td>{prod.downloads}</td>}
-                            <td>{prod.modifiedAt}</td>
+                            <td>{new Date(prod.modifiedAt).toLocaleDateString() } - {new Date(prod.modifiedAt).toLocaleTimeString()}</td>
                             {user && (
                               <td>
                                 <Link>
@@ -148,7 +149,7 @@ const Home = ({ editProduct }) => {
                             )}
                             {!user && (
                               <td>
-                                <button
+                                 <button
                                   type="button"
                                   onClick={() =>
                                     onDownloadHandler(prod.id, prod.name)
@@ -156,7 +157,8 @@ const Home = ({ editProduct }) => {
                                   class="btn btn-sm btn-danger"
                                 >
                                   Download
-                                </button>
+                                </button> 
+                               {/* <DownloadBtn/> */}
                               </td>
                             )}
                           </tr>

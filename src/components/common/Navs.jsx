@@ -6,6 +6,13 @@ import { UserContext } from "../contexts/UserContext";
 import "./style/navs.css";
 export default function Navs() {
   const { user } = useContext(UserContext);
+  const contactusHandler=()=>{
+    var element = document.getElementById("contactUs");
+element.scrollIntoView();
+element.scrollIntoView(false);
+element.scrollIntoView({block: "end"});
+element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+  }
   const logoutHandler = async () => {
     localStorage.removeItem("jwt");
     toast.success("logout  successfully !!!", {
@@ -83,7 +90,7 @@ export default function Navs() {
           <li>
             {" "}
             <a class="nav-link text-dark text-uppercase">
-              <Link to="/contact">Contact Us</Link>
+            <Link onClick={contactusHandler}>Contact Us</Link>
             </a>
           </li>
           <li>
