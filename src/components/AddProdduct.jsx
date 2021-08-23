@@ -24,7 +24,7 @@ export default function AddProduct({ onLogin }) {
       axios.post(`${url}/addProduct`, data, {
         onUploadProgress: (ProgressEvent) => {
           // console.log((ProgressEvent.loaded / ProgressEvent.total * 100));
-          setLoaded((ProgressEvent.loaded / ProgressEvent.total) * 100);
+          setLoaded(Math.round((ProgressEvent.loaded / ProgressEvent.total)  * 100));
         },
       });
     } catch (error) {

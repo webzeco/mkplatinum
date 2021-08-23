@@ -17,10 +17,14 @@ import { getAllProducts } from "../services/productServices";
 import AddProduct from "./AddProdduct";
 import EditProduct from "./EditProdduct";
 import Navs from "./common/Navs";
+import DownloadLinkPage from "./DownloadLinkPage";
+import Recharge from "./Recharge";
+import { RechargeContext } from "./contexts/rechargeContact";
 const Main = () => {
   const history = useHistory();
   const [user, setUser] = useState();
   const [editProduct, setEditProduct] = useState();
+  const [rechargeProd, setRechargeProd] = useState();
 
   
   useEffect(() => {
@@ -28,7 +32,9 @@ const Main = () => {
     return () => { };
   }, []);
 
-  
+  const rechargeProdHandler=(prod)=>{
+setRechargeProd(prod);
+  }
 
   
   const loginHandler = async (user) => {
@@ -91,6 +97,7 @@ const Main = () => {
   }
   return (
     <UserContext.Provider value={{ user: user }}>
+          <RechargeContext.Provider value={{ rechargeProd,rechargeProdHandler }}>
             <div>
               <ToastContainer style={{ width: "322px" }} />
               <Navs />
@@ -112,6 +119,20 @@ const Main = () => {
                   path="/add"
                   render={(props) => (
                     <AddProduct onLogin={loginHandler} {...props} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/download/:id/:name"
+                  render={(props) => (
+                    <DownloadLinkPage  {...props} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/recharge"
+                  render={(props) => (
+                    <Recharge  {...props} />
                   )}
                 />
                 <Route
@@ -146,6 +167,7 @@ const Main = () => {
               </Switch>
               <Footer />
             </div>
+            </RechargeContext.Provider>
     </UserContext.Provider>
   );
 };

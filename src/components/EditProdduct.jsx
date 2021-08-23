@@ -27,7 +27,7 @@ export default function EditProduct({ product }) {
         .patch(`${url}/updateProduct/${id}`, data, {
           onUploadProgress: (ProgressEvent) => {
             console.log((ProgressEvent.loaded / ProgressEvent.total) * 100);
-            setLoaded((ProgressEvent.loaded / ProgressEvent.total) * 100);
+            setLoaded(Math.round((ProgressEvent.loaded / ProgressEvent.total)  * 100));
           },
         })
         .then((response) => {
@@ -79,7 +79,7 @@ export default function EditProduct({ product }) {
           <h6>{product.size}MB</h6>
         </div>
         <div>
-          <h6>{product.modifiedAt}</h6>
+          <h6>{new Date(product.modifiedAt).toLocaleDateString() } - {new Date(product.modifiedAt).toLocaleTimeString()}</h6>
         </div>
       </div>
       <div className="mb-4 mt-5 ">

@@ -6,7 +6,7 @@ import React from 'react'
 export default function Progressbar({loaded ,type}) {
     return (
       <div className="mx-5">
-        {loaded!==0? <Progress
+        {loaded!==0 && loaded !==100? <Progress
         theme={
           {
             error: {
