@@ -6,19 +6,23 @@ import { UserContext } from "../contexts/UserContext";
 import "./style/navs.css";
 export default function Navs() {
   const { user } = useContext(UserContext);
-  const contactusHandler=()=>{
+  const contactusHandler = () => {
     var element = document.getElementById("contactUs");
-element.scrollIntoView();
-element.scrollIntoView(false);
-element.scrollIntoView({block: "end"});
-element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-  }
+    element.scrollIntoView();
+    element.scrollIntoView(false);
+    element.scrollIntoView({ block: "end" });
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  };
   const logoutHandler = async () => {
     localStorage.removeItem("jwt");
     toast.success("logout  successfully !!!", {
       position: toast.POSITION.TOP_CENTER,
     });
-    // history.push('/');
+
     window.location = "/";
   };
   useEffect(() => {
@@ -34,7 +38,7 @@ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
         <img
           // src={`${process.env.REACT_APP_URL}/img/gold pro red.png`}
           src="/mklogo.png"
-          class="img-fluid mx-3 my-2"
+          class="img-fluid mx-3 my-2 "
           style={{ height: "80px" }}
           alt="Mk Platinum World"
         />
@@ -45,14 +49,14 @@ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
           <li>
             <a>
               {" "}
-              <Link class="nav-link text-dark text-uppercase" to="/">
+              <Link class="nav-link  text-uppercase" to="/">
                 Home
               </Link>
             </a>
           </li>
           <li>
             <a>
-              <Link class="nav-link text-dark text-uppercase" to="/add">
+              <Link class="nav-link  text-uppercase" to="/add">
                 {" "}
                 <i class="fas fa-user mx-1 "></i>
                 {user.name}
@@ -61,7 +65,7 @@ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
           </li>
           <li>
             <a>
-              <Link class="nav-link text-dark text-uppercase" to="/add">
+              <Link class="nav-link  text-uppercase" to="/add">
                 Add Product
               </Link>
             </a>
@@ -69,33 +73,30 @@ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
           <li>
             <a>
               {" "}
-              <Link class="nav-link text-dark " onClick={logoutHandler}>
+              <Link class="nav-link  " onClick={logoutHandler}>
                 logout
               </Link>
             </a>
           </li>
-          {/* <li>    <a class="nav-link text-dark text-uppercase"><Link to='/'>Home</Link> </a></li>  
-             <li>    <a class="nav-link text-dark text-uppercase"><Link to='/contact'>Contact Us</Link></a></li>  
-             <li>  <a class="nav-link text-dark active text-uppercase" onClick={logoutHandler}  ><Link to='/login'>logout</Link></a></li> */}
         </ul>
       )}
       {!user && (
         <ul className="mt-3">
           <li>
             {" "}
-            <a class="nav-link text-dark text-uppercase">
+            <a class="nav-link  text-uppercase">
               <Link to="/">Home</Link>{" "}
             </a>
           </li>
           <li>
             {" "}
-            <a class="nav-link text-dark text-uppercase">
-            <Link onClick={contactusHandler}>Contact Us</Link>
+            <a class="nav-link  text-uppercase">
+              <Link onClick={contactusHandler}>Contact Us</Link>
             </a>
           </li>
           <li>
             {" "}
-            <a class="nav-link text-dark active text-uppercase">
+            <a class="nav-link  active text-uppercase">
               <Link to="/login">Login</Link>
             </a>
           </li>

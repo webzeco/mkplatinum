@@ -55,16 +55,14 @@ const Home = ({ editProduct }) => {
   return (
     <div>
       <section id="hero" class="d-flex align-items-center mt-2 ">
-        <div class="container">
+        <div class="containe-fluid">
           <div class="row">
             <div
-              class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+              class="col-lg-6 d-flex flex-column justify-content-center pt-2 px-5 pt-lg-0 order-2 order-lg-1"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <h1 class="banner_h1_look text-white">
-                Welcome to Mk Platinum World
-              </h1>
+              <h1 class="banner_h1_look">Welcome to Mk Platinum World</h1>
             </div>
             <div
               class="col-lg-6 order-1 order-lg-2 hero-img"
@@ -72,8 +70,9 @@ const Home = ({ editProduct }) => {
               data-aos-delay="200"
             >
               <img
-                src="https://freepngimg.com/thumb/tv/3-old-tv-png-image.png"
-                class="img-fluid animated"
+                src={process.env.PUBLIC_URL + "/banner_img.png"}
+                style={{ height: "370px" }}
+                class="img-fluid animated img_size"
                 alt=""
               />
             </div>
@@ -126,7 +125,10 @@ const Home = ({ editProduct }) => {
                             <td>{prod.name}</td>
                             <td>{prod.size} MB</td>
                             {user && <td>{prod.downloads}</td>}
-                            <td>{new Date(prod.modifiedAt).toLocaleDateString() } - {new Date(prod.modifiedAt).toLocaleTimeString()}</td>
+                            <td>
+                              {new Date(prod.modifiedAt).toLocaleDateString()} -{" "}
+                              {new Date(prod.modifiedAt).toLocaleTimeString()}
+                            </td>
                             {user && (
                               <td>
                                 <Link>
@@ -149,7 +151,7 @@ const Home = ({ editProduct }) => {
                             )}
                             {!user && (
                               <td>
-                                 <button
+                                <button
                                   type="button"
                                   onClick={() =>
                                     onDownloadHandler(prod.id, prod.name)
@@ -157,8 +159,8 @@ const Home = ({ editProduct }) => {
                                   class="btn btn-sm btn-danger"
                                 >
                                   Download
-                                </button> 
-                               {/* <DownloadBtn/> */}
+                                </button>
+                                {/* <DownloadBtn/> */}
                               </td>
                             )}
                           </tr>

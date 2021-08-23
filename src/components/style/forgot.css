@@ -5,16 +5,16 @@
 .creat_look {
   font-size: 16px !important ;
   color: #333333 !important;
-  font-family: "Lato" !important;
+  font-family: "Times New Roman", Times, serif;
 }
 .inputs_look {
   border-radius: 0px !important;
 }
 .message_look {
-  font-family: "Montserrat";
+  font-family: "Times New Roman", Times, serif;
 }
 .submit-content {
-  font-family: "Montserrat";
+  font-family: "Times New Roman", Times, serif;
   color: #1b58b7;
 }
 .fg_link {
@@ -35,7 +35,7 @@
   font-size: 16px;
   border-radius: 0px !important;
   height: 50px;
-  font-family: "Montserrat";
+  font-family: "Times New Roman", Times, serif;
 
   color: #fff !important;
 }

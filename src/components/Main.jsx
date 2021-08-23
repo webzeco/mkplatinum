@@ -8,9 +8,14 @@ import { UserContext } from "./contexts/UserContext";
 import Login from "./Login";
 import Forgot from "./Forgot";
 import Account from "./Account";
-import { forgotPassword, login, resetPassword, signup } from "../services/authService";
+import {
+  forgotPassword,
+  login,
+  resetPassword,
+  signup,
+} from "../services/authService";
 import { toast, ToastContainer } from "react-toastify";
-import Navbar from "./common/Navbar";
+
 import { getMe } from "../services/UsersService";
 import ResetPassword from "./ResetPassword";
 import { getAllProducts } from "../services/productServices";
@@ -22,15 +27,11 @@ const Main = () => {
   const [user, setUser] = useState();
   const [editProduct, setEditProduct] = useState();
 
-  
   useEffect(() => {
     getMeHandler();
-    return () => { };
+    return () => {};
   }, []);
 
-  
-
-  
   const loginHandler = async (user) => {
     try {
       const { data } = await login(user);
@@ -46,28 +47,26 @@ const Main = () => {
       });
     }
   };
-  
-  const setEditProductHandler=(prod)=>{
+
+  const setEditProductHandler = (prod) => {
     setEditProduct(prod);
-    history.push('/edit');
-  }
+    history.push("/edit");
+  };
   const getMeHandler = async () => {
     const { data } = await getMe();
     setUser(data.data);
   };
- 
 
   const forgotHandler = async (email) => {
-    const data = await forgotPassword(email)
-    if (data.data.status === 'success')
+    const data = await forgotPassword(email);
+    if (data.data.status === "success")
       toast.success("Email successfully sent Please check your mail");
     else {
       toast.error(data.data.message);
       history.push("/");
     }
   };
- 
-  
+
   const resetPasswordHandler = async (values) => {
     const { password, confirmPassword, token } = values;
     console.log(values);
@@ -88,64 +87,59 @@ const Main = () => {
         position: toast.POSITION.TOP_CENTER,
       });
     }
-  }
+  };
   return (
     <UserContext.Provider value={{ user: user }}>
-            <div>
-              <ToastContainer style={{ width: "322px" }} />
-              <Navs />
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={(props) => <Home editProduct={setEditProductHandler} {...props} />}
-                />
-                <Route
-                  exact
-                  path="/edit"
-                  render={(props) => (
-                    <EditProduct product={editProduct}  {...props} />
-                  )}
-                />
-                 <Route
-                  exact
-                  path="/add"
-                  render={(props) => (
-                    <AddProduct onLogin={loginHandler} {...props} />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/login"
-                  render={(props) => (
-                    <Login onLogin={loginHandler} {...props} />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/resetPassword/:token"
-                  render={(props) => (
-                    <ResetPassword onResetPassword={resetPasswordHandler} {...props} />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/forgot"
-                  render={(props) => (
-                    <Forgot onForgot={forgotHandler} {...props} />
-                  )}
-                />
-                <Route
-                  path="/account"
-                  render={(props) => (
-                    <Account onForgot={forgotHandler} {...props} />
-                  )}
-                />
-                
-                <Route component={NotFound} />
-              </Switch>
-              <Footer />
-            </div>
+      <div>
+        <ToastContainer style={{ width: "322px" }} />
+        <Navs />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <Home editProduct={setEditProductHandler} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path="/edit"
+            render={(props) => <EditProduct product={editProduct} {...props} />}
+          />
+          <Route
+            exact
+            path="/add"
+            render={(props) => <AddProduct onLogin={loginHandler} {...props} />}
+          />
+          <Route
+            exact
+            path="/login"
+            render={(props) => <Login onLogin={loginHandler} {...props} />}
+          />
+          <Route
+            exact
+            path="/resetPassword/:token"
+            render={(props) => (
+              <ResetPassword
+                onResetPassword={resetPasswordHandler}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/forgot"
+            render={(props) => <Forgot onForgot={forgotHandler} {...props} />}
+          />
+          <Route
+            path="/account"
+            render={(props) => <Account onForgot={forgotHandler} {...props} />}
+          />
+
+          <Route component={NotFound} />
+        </Switch>
+        <Footer />
+      </div>
     </UserContext.Provider>
   );
 };

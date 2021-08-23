@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Times New Roman", Times, serif;
   color: #444444;
 }
 
@@ -29,52 +29,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Jost", sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-/* #preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: #1b58b7;
-}
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #1b58b7;
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
-}
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -85,7 +42,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #1b58b7;
+  background: #1b58b7 !important;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -99,7 +56,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #ff4949;
+  background: skyblue !important;
   color: #fff;
 }
 
@@ -141,7 +98,8 @@ h6 {
 }
 
 .banner_h1_look {
-  color: #ff0000 !important;
+  color: darkmagenta !important;
+  font-family: "Times New Roman", Times, serif;
 }
 
 /*--------------------------------------------------------------
@@ -391,12 +349,12 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 75vh;
+  height: 80vh;
   background: #a3bce2;
 }
 
 #hero .container {
-  padding-top: 50px;
+  padding-top: 70px;
 }
 
 #hero h1 {
@@ -414,7 +372,7 @@ h6 {
 }
 
 #hero .btn-get-started {
-  font-family: "Jost", sans-serif;
+  font-family: "Times New Roman", Times, serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -425,32 +383,6 @@ h6 {
   margin: 10px 0 0 0;
   color: #fff;
   background: #47b2e4;
-}
-
-#hero .btn-get-started:hover {
-  background: #209dd8;
-}
-
-#hero .btn-watch-video {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  transition: 0.5s;
-  margin: 10px 0 0 25px;
-  color: #fff;
-  line-height: 1;
-}
-
-#hero .btn-watch-video i {
-  line-height: 0;
-  color: #fff;
-  font-size: 32px;
-  transition: 0.3s;
-  margin-right: 8px;
-}
-
-#hero .btn-watch-video:hover i {
-  color: #47b2e4;
 }
 
 #hero .animated {
@@ -606,7 +538,7 @@ section {
 }
 
 .about .content .btn-learn-more {
-  font-family: "Poppins", sans-serif;
+  font-family: "Times New Roman", Times, serif;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1px;
@@ -635,7 +567,7 @@ section {
   font-weight: 700;
   font-size: 32px;
   color: #1b58b7;
-  font-family: "Poppins", sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .skills .content ul {
@@ -670,7 +602,7 @@ section {
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: "Times New Roman", Times, serif;
   color: #1b58b7;
 }
 
@@ -755,7 +687,7 @@ section {
   transition: all 0.3s;
   padding: 8px 20px 4px 20px;
   border-radius: 50px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .portfolio #portfolio-flters li:hover,
@@ -1205,193 +1137,15 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
-#footer {
-  font-size: 14px;
-  background: #1b58b7;
-}
-
-#footer .footer-newsletter {
-  padding: 50px 0;
-  background: #f3f5fa;
-  text-align: center;
-  font-size: 15px;
-  color: #444444;
-}
-
-#footer .footer-newsletter h4 {
-  font-size: 24px;
-  margin: 0 0 20px 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 600;
-  color: #1b58b7;
-}
-
-#footer .footer-newsletter form {
-  margin-top: 30px;
-  background: #fff;
-  padding: 6px 10px;
-  position: relative;
-  border-radius: 50px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.06);
-  text-align: left;
-}
-
-#footer .footer-newsletter form input[type="email"] {
-  border: 0;
-  padding: 4px 8px;
-  width: calc(100% - 100px);
-}
-
-#footer .footer-newsletter form input[type="submit"] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 20px;
-  background: #47b2e4;
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 50px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
-
-#footer .footer-newsletter form input[type="submit"]:hover {
-  background: #209dd8;
-}
-
-#footer .footer-top {
-  padding: 60px 0 30px 0;
-  background: #fff;
-}
-
-#footer .footer-top .footer-contact {
-  margin-bottom: 30px;
-}
-
-#footer .footer-top .footer-contact h3 {
-  font-size: 28px;
-  margin: 0 0 10px 0;
-  padding: 2px 0 2px 0;
-  line-height: 1;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #1b58b7;
-}
-
-#footer .footer-top .footer-contact p {
-  font-size: 14px;
-  line-height: 24px;
-  margin-bottom: 0;
-  font-family: "Jost", sans-serif;
-  color: #5e5e5e;
-}
-
-#footer .footer-top h4 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #1b58b7;
-  position: relative;
-  padding-bottom: 12px;
-}
-
-#footer .footer-top .footer-links {
-  margin-bottom: 30px;
-}
-
-#footer .footer-top .footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#footer .footer-top .footer-links ul i {
-  padding-right: 2px;
-  color: #47b2e4;
-  font-size: 18px;
-  line-height: 1;
-}
-
-#footer .footer-top .footer-links ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-#footer .footer-top .footer-links ul li:first-child {
-  padding-top: 0;
-}
-
-#footer .footer-top .footer-links ul a {
-  color: #777777;
-  transition: 0.3s;
-  display: inline-block;
-  line-height: 1;
-}
-
-#footer .footer-top .footer-links ul a:hover {
-  text-decoration: none;
-  color: #47b2e4;
-}
-
-#footer .footer-top .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #47b2e4;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
-
-#footer .footer-top .social-links a:hover {
-  background: #209dd8;
-  color: #fff;
-  text-decoration: none;
-}
-
-#footer .footer-bottom {
-  padding-top: 30px;
-  padding-bottom: 10px;
-  color: #fff;
-}
-
-#footer .copyright {
-  float: left;
-}
-
-#footer .credits {
-  float: right;
-  font-size: 13px;
-  color: darkred;
-}
-
-#footer .credits a {
-  transition: 0.3s;
-}
-
-@media (max-width: 768px) {
-  #footer .footer-bottom {
-    padding-top: 10px;
-    padding-bottom: 120px;
+@media (max-width: 992px) {
+  .img_size {
+    height: 200px !important;
+    width: 300px !important;
   }
-  #footer .copyright,
-  #footer .credits {
-    text-align: center;
-    float: none;
-  }
-  #footer .credits {
-    padding-top: 4px;
+}
+@media (max-width: 600px) {
+  .img_size {
+    height: 100px !important;
+    width: 200px !important;
   }
 }

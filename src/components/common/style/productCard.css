@@ -16,7 +16,7 @@
 }
 .card-title {
   font-size: 15px !important;
-  font-family: "Montserrat";
+  font-family: "Times New Roman", Times, serif;
   font-weight: bold !important;
 }
 .img_back_col {
@@ -33,5 +33,5 @@
 }
 .card-text {
   font-size: 15px !important;
-  font-family: "Montserrat";
+  font-family: "Times New Roman", Times, serif;
 }
