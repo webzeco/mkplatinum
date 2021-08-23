@@ -17,9 +17,13 @@ export function getUserStats(id) {
 export function addNewProduct(product) {
     return http.post(`${url}/addProduct`,product);
 }
+export function recharge(data) {
+    return http.post(`${url}/recharge`,data);
+}
 const AllServices = {
     getAllProducts,
     addNewProduct,
     getUserStats,
+    recharge
 }
 export default AllServices;

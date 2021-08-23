@@ -9,23 +9,35 @@ import {
 } from "../services/productServices";
 import DownloadBtn from "./common/DownloadBtn";
 import Progressbar from "./common/Progress";
+import { RechargeContext } from "./contexts/rechargeContact";
 import { UserContext } from "./contexts/UserContext";
 import "./style/home.css";
 const FileDownload = require("js-file-download");
 
 const Home = ({ editProduct }) => {
   const { user } = useContext(UserContext);
+  const { rechargeProdHandler } = useContext(RechargeContext);
+
   const [products, setProducts] = useState([]);
   const [loaded, setLoaded] = useState(0);
   useEffect(() => {
     getAllProductHandler();
     return () => {};
   }, []);
+
   const getAllProductHandler = async () => {
     const { data } = await getAllProducts();
     console.log(data.data);
     setProducts(data.data);
   };
+  function copyToClipboard(text) {
+    const elem = document.createElement("textarea");
+    elem.value = text;
+    document.body.appendChild(elem);
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+  }
   const onDownloadHandler = (id, name) => {
     const url = `${process.env.REACT_APP_URL}/api/v1/product/download/${id}`;
     axios({
@@ -33,7 +45,9 @@ const Home = ({ editProduct }) => {
       method: "GET",
       responseType: "blob", // Important
       onDownloadProgress: (ProgressEvent) => {
-        setLoaded((ProgressEvent.loaded / ProgressEvent.total) * 100);
+        setLoaded(
+          Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100)
+        );
       },
     }).then((response) => {
       console.log(response);
@@ -147,6 +161,17 @@ const Home = ({ editProduct }) => {
                                 >
                                   Delete
                                 </button>
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    copyToClipboard(
+                                      `${window.location.host}/download/${prod.id}/${prod.name}`
+                                    )
+                                  }
+                                  class="btn btn-sm mx-1 btn-primary"
+                                >
+                                  copy
+                                </button>
                               </td>
                             )}
                             {!user && (
@@ -160,6 +185,15 @@ const Home = ({ editProduct }) => {
                                 >
                                   Download
                                 </button>
+                                <Link to="/recharge">
+                                  <button
+                                    type="button"
+                                    onClick={() => rechargeProdHandler(prod)}
+                                    class="btn btn-sm mx-1 btn-primary"
+                                  >
+                                    Recharge
+                                  </button>
+                                </Link>
                                 {/* <DownloadBtn/> */}
                               </td>
                             )}

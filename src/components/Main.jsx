@@ -22,16 +22,25 @@ import { getAllProducts } from "../services/productServices";
 import AddProduct from "./AddProdduct";
 import EditProduct from "./EditProdduct";
 import Navs from "./common/Navs";
+import DownloadLinkPage from "./DownloadLinkPage";
+import Recharge from "./Recharge";
+import { RechargeContext } from "./contexts/rechargeContact";
 const Main = () => {
   const history = useHistory();
   const [user, setUser] = useState();
   const [editProduct, setEditProduct] = useState();
+  const [rechargeProd, setRechargeProd] = useState();
 
   useEffect(() => {
     getMeHandler();
     return () => {};
   }, []);
 
+  const rechargeProdHandler=(prod)=>{
+setRechargeProd(prod);
+  }
+
+  
   const loginHandler = async (user) => {
     try {
       const { data } = await login(user);
@@ -90,56 +99,77 @@ const Main = () => {
   };
   return (
     <UserContext.Provider value={{ user: user }}>
-      <div>
-        <ToastContainer style={{ width: "322px" }} />
-        <Navs />
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={(props) => (
-              <Home editProduct={setEditProductHandler} {...props} />
-            )}
-          />
-          <Route
-            exact
-            path="/edit"
-            render={(props) => <EditProduct product={editProduct} {...props} />}
-          />
-          <Route
-            exact
-            path="/add"
-            render={(props) => <AddProduct onLogin={loginHandler} {...props} />}
-          />
-          <Route
-            exact
-            path="/login"
-            render={(props) => <Login onLogin={loginHandler} {...props} />}
-          />
-          <Route
-            exact
-            path="/resetPassword/:token"
-            render={(props) => (
-              <ResetPassword
-                onResetPassword={resetPasswordHandler}
-                {...props}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/forgot"
-            render={(props) => <Forgot onForgot={forgotHandler} {...props} />}
-          />
-          <Route
-            path="/account"
-            render={(props) => <Account onForgot={forgotHandler} {...props} />}
-          />
-
-          <Route component={NotFound} />
-        </Switch>
-        <Footer />
-      </div>
+          <RechargeContext.Provider value={{ rechargeProd,rechargeProdHandler }}>
+            <div>
+              <ToastContainer style={{ width: "322px" }} />
+              <Navs />
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => <Home editProduct={setEditProductHandler} {...props} />}
+                />
+                <Route
+                  exact
+                  path="/edit"
+                  render={(props) => (
+                    <EditProduct product={editProduct}  {...props} />
+                  )}
+                />
+                 <Route
+                  exact
+                  path="/add"
+                  render={(props) => (
+                    <AddProduct onLogin={loginHandler} {...props} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/download/:id/:name"
+                  render={(props) => (
+                    <DownloadLinkPage  {...props} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/recharge"
+                  render={(props) => (
+                    <Recharge  {...props} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/login"
+                  render={(props) => (
+                    <Login onLogin={loginHandler} {...props} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/resetPassword/:token"
+                  render={(props) => (
+                    <ResetPassword onResetPassword={resetPasswordHandler} {...props} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/forgot"
+                  render={(props) => (
+                    <Forgot onForgot={forgotHandler} {...props} />
+                  )}
+                />
+                <Route
+                  path="/account"
+                  render={(props) => (
+                    <Account onForgot={forgotHandler} {...props} />
+                  )}
+                />
+                
+                <Route component={NotFound} />
+              </Switch>
+              <Footer />
+            </div>
+            </RechargeContext.Provider>
     </UserContext.Provider>
   );
 };
